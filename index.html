@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; color: #1f2937; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  button { border: 0; border-radius: 22px; padding: 9px 16px; font-size: 15px; cursor: pointer; background: #f28c28; color: #fff; }
+  button.alt { background: #1b2a5e; }
+  button.rec { background: #c62828; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  #status { font-size: 13px; margin-top: 6px; min-height: 18px; }
+  #heard { font-size: 14px; font-style: italic; margin-top: 2px; color: #4b5563; }
+</style>
+</head>
+<body>
+<div class="row">
+  <button id="mic">🎤 Speak / बोलिए</button>
+  <button id="listen" class="alt">🔊 Listen / सुनिए</button>
+</div>
+<div id="status"></div>
+<div id="heard"></div>
+<script>
+  const send = (type, data) => window.parent.postMessage(Object.assign({ isStreamlitMessage: true, type: type }, data || {}), "*");
+  let args = { lang: "hi-IN", speak_text: "", speak_id: "", auto_speak: false };
+  let rec = null, listening = false, lastSpokenId = "";
+  const $ = (id) => document.getElementById(id);
+  const say = (m) => { $("status").textContent = m; };
+
+  const ERR = {
+    "not-allowed": "Microphone is blocked. Click the lock icon in the address bar, allow the microphone, then try again. माइक्रोफ़ोन की अनुमति दें।",
+    "service-not-allowed": "This browser does not allow voice typing here. Use Chrome or Edge.",
+    "no-speech": "I did not hear anything. Speak closer to the phone/mic and try again. कुछ सुनाई नहीं दिया।",
+    "audio-capture": "No microphone found. Connect a microphone.",
+    "network": "Voice typing needs an internet connection.",
+    "language-not-supported": "This language is not supported by your browser's voice typing.",
+    "aborted": ""
+  };
+
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { $("mic").disabled = true; say("Voice typing is not supported in this browser. Please use Chrome or Edge, or type your question."); }
+
+  function startListening() {
+    if (!SR) return;
+    if (window.speechSynthesis) window.speechSynthesis.cancel();      // do not listen to our own voice
+    if (listening && rec) { rec.stop(); return; }
+    rec = new SR();
+    rec.lang = args.lang || "hi-IN";
+    rec.interimResults = true;
+    rec.maxAlternatives = 1;
+    rec.continuous = false;
+    let finalText = "";
+    rec.onstart = () => { listening = true; $("mic").classList.add("rec"); $("mic").textContent = "⏹ Listening... / सुन रही हूँ"; say("Speak now. अब बोलिए।"); $("heard").textContent = ""; };
+    rec.onresult = (e) => {
+      let interim = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const t = e.results[i][0].transcript;
+        if (e.results[i].isFinal) finalText += t; else interim += t;
+      }
+      $("heard").textContent = (finalText + " " + interim).trim();
+    };
+    rec.onerror = (e) => { say(ERR[e.error] !== undefined ? ERR[e.error] : ("Voice error: " + e.error)); };
+    rec.onend = () => {
+      listening = false; $("mic").classList.remove("rec"); $("mic").textContent = "🎤 Speak / बोलिए";
+      const text = finalText.trim();
+      if (text) {
+        say("Heard: " + text);
+        send("streamlit:setComponentValue", { value: { id: Date.now() + "-" + Math.random().toString(36).slice(2, 7), text: text, lang: rec.lang }, dataType: "json" });
+      }
+    };
+    try { rec.start(); } catch (err) { say("Could not start the microphone: " + err.message); }
+  }
+
+  function pickVoice(lang) {
+    const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    const base = lang.slice(0, 2).toLowerCase();
+    return voices.find(v => v.lang.toLowerCase() === lang.toLowerCase()) || voices.find(v => v.lang.toLowerCase().startsWith(base)) || null;
+  }
+
+  function speakNow(text, lang) {
+    if (!window.speechSynthesis) { say("This browser cannot read text aloud."); return; }
+    if (!text) { say("Nothing to read yet."); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    const v = pickVoice(lang);
+    if (v) u.voice = v;
+    else if (lang.startsWith("hi")) say("No Hindi voice found on this device. Install Hindi text-to-speech in the phone/computer settings. (Google Text-to-speech supports Hindi.)");
+    u.rate = 0.92;
+    window.speechSynthesis.speak(u);
+  }
+
+  $("mic").addEventListener("click", startListening);
+  $("listen").addEventListener("click", () => speakNow(args.speak_text, args.speak_lang || args.lang || "hi-IN"));
+  if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = () => {};
+
+  window.addEventListener("message", (ev) => {
+    if (!ev.data || ev.data.type !== "streamlit:render") return;
+    args = Object.assign(args, ev.data.args || {});
+    $("mic").style.display = args.show_mic === false ? "none" : "";
+    $("listen").style.display = args.show_listen === false ? "none" : "";
+    if (args.auto_speak && args.speak_id && args.speak_id !== lastSpokenId && args.speak_text) {
+      lastSpokenId = args.speak_id;
+      speakNow(args.speak_text, args.speak_lang || args.lang || "hi-IN");
+    }
+    send("streamlit:setFrameHeight", { height: 110 });
+  });
+  send("streamlit:componentReady", { apiVersion: 1 });
+  send("streamlit:setFrameHeight", { height: 110 });
+</script>
+</body>
+</html>

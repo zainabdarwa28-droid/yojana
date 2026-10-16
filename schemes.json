@@ -1,0 +1,582 @@
+{
+  "_note": "SAMPLE DATA FOR DEMO. Verify every scheme (benefit, rules, documents, where to apply) on the official portal before showing to users, then set verified=true and fill last_verified. Official list to check against: https://cmhelpline.cg.gov.in/Home/Schemes (open it in a browser and copy the details).",
+  "schemes": [
+    {
+      "id": "mahtari",
+      "level": "person",
+      "name_en": "Mahtari Vandan Yojana",
+      "name_hi": "महतारी वंदन योजना",
+      "department": "Women & Child Development, Chhattisgarh",
+      "keywords": [
+        "महतारी",
+        "mahtari",
+        "vandan",
+        "वंदन",
+        "हर महीना पैसा",
+        "महीने के पैसा",
+        "monthly money",
+        "monthly cash"
+      ],
+      "benefit_en": "Monthly cash assistance for eligible women (confirm the current amount on the official portal).",
+      "benefit_hi": "पात्र महिलाओं को हर महीने नकद सहायता (वर्तमान राशि आधिकारिक पोर्टल पर जाँच लें)।",
+      "rules": [
+        {
+          "field": "gender",
+          "op": "eq",
+          "value": "F",
+          "label_en": "Applicant must be a woman",
+          "label_hi": "आवेदक महिला होनी चाहिए"
+        },
+        {
+          "field": "age",
+          "op": "gte",
+          "value": 21,
+          "label_en": "Age must be at least 21 years",
+          "label_hi": "उम्र कम से कम 21 साल होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Bank account (Aadhaar-linked)",
+        "Ration card",
+        "Passport size photo"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "बैंक खाता (आधार से जुड़ा)",
+        "राशन कार्ड",
+        "पासपोर्ट साइज़ फोटो"
+      ],
+      "how_en": "Apply through your Anganwadi centre or panchayat/ward office with these documents.",
+      "how_hi": "ये दस्तावेज़ लेकर अपने आँगनबाड़ी केंद्र या पंचायत/वार्ड कार्यालय में आवेदन करें।",
+      "where_en": "Anganwadi centre or panchayat/ward office",
+      "where_hi": "आँगनबाड़ी केंद्र या पंचायत/वार्ड कार्यालय",
+      "note_en": "Other conditions (for example marital status) may apply; confirm locally.",
+      "note_hi": "अन्य शर्तें (जैसे वैवाहिक स्थिति) लागू हो सकती हैं; स्थानीय कार्यालय में पुष्टि करें।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "ujjwala",
+      "level": "household",
+      "name_en": "PM Ujjwala Yojana",
+      "name_hi": "प्रधानमंत्री उज्ज्वला योजना",
+      "department": "Ministry of Petroleum and Natural Gas",
+      "keywords": [
+        "उज्ज्वला",
+        "उज्जवला",
+        "ujjwala",
+        "ujjvala",
+        "गैस",
+        "gas",
+        "सिलेंडर",
+        "cylinder",
+        "lpg",
+        "चूल्हा",
+        "chulha"
+      ],
+      "benefit_en": "Free LPG gas connection for women from poor households.",
+      "benefit_hi": "गरीब परिवारों की महिलाओं को मुफ्त गैस कनेक्शन।",
+      "rules": [
+        {
+          "field": "gender",
+          "op": "eq",
+          "value": "F",
+          "label_en": "Applicant must be a woman",
+          "label_hi": "आवेदक महिला होनी चाहिए"
+        },
+        {
+          "field": "age",
+          "op": "gte",
+          "value": 18,
+          "label_en": "Age must be at least 18 years",
+          "label_hi": "उम्र कम से कम 18 साल होनी चाहिए"
+        },
+        {
+          "field": "bpl",
+          "op": "eq",
+          "value": true,
+          "label_en": "Household must be a BPL / eligible poor household",
+          "label_hi": "परिवार BPL / पात्र गरीब परिवार होना चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "BPL ration card",
+        "Bank account details",
+        "Passport size photo"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "BPL राशन कार्ड",
+        "बैंक खाते की जानकारी",
+        "पासपोर्ट साइज़ फोटो"
+      ],
+      "how_en": "Go to your nearest LPG gas agency with these documents and fill the KYC form.",
+      "how_hi": "ये दस्तावेज़ लेकर नज़दीकी गैस एजेंसी जाएँ और KYC फॉर्म भरें।",
+      "where_en": "Nearest LPG gas agency",
+      "where_hi": "नज़दीकी गैस एजेंसी",
+      "note_en": "The household should not already have an LPG connection.",
+      "note_hi": "परिवार के पास पहले से गैस कनेक्शन नहीं होना चाहिए।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "pmayg",
+      "level": "household",
+      "name_en": "PM Awas Yojana (Gramin)",
+      "name_hi": "प्रधानमंत्री आवास योजना (ग्रामीण)",
+      "department": "Ministry of Rural Development",
+      "keywords": [
+        "आवास",
+        "awas",
+        "awaas",
+        "pmay",
+        "मकान",
+        "makaan",
+        "house",
+        "घर",
+        "ghar",
+        "home"
+      ],
+      "benefit_en": "Financial help to build a pucca house for eligible rural families (amount as per current guidelines).",
+      "benefit_hi": "पात्र ग्रामीण परिवारों को पक्का मकान बनाने के लिए आर्थिक सहायता (राशि वर्तमान दिशानिर्देशों के अनुसार)।",
+      "rules": [
+        {
+          "field": "pucca_house",
+          "op": "eq",
+          "value": false,
+          "label_en": "The family should not own a pucca house",
+          "label_hi": "परिवार के पास पक्का मकान नहीं होना चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Bank account details",
+        "Job card (if any)",
+        "Ration card"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "बैंक खाते की जानकारी",
+        "जॉब कार्ड (यदि हो)",
+        "राशन कार्ड"
+      ],
+      "how_en": "Contact your gram panchayat / Rozgar Sahayak to check if your name is on the awaas list.",
+      "how_hi": "अपनी ग्राम पंचायत / रोजगार सहायक से मिलकर देखें कि आपका नाम आवास सूची में है या नहीं।",
+      "where_en": "Gram panchayat office",
+      "where_hi": "ग्राम पंचायत कार्यालय",
+      "note_en": "Selection is from the official awaas list, so a local check is needed.",
+      "note_hi": "चयन आधिकारिक आवास सूची से होता है, इसलिए स्थानीय स्तर पर जाँच ज़रूरी है।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "ayushman",
+      "level": "household",
+      "name_en": "Ayushman Bharat (PM-JAY)",
+      "name_hi": "आयुष्मान भारत (PM-JAY)",
+      "department": "National Health Authority",
+      "keywords": [
+        "आयुष्मान",
+        "ayushman",
+        "इलाज",
+        "ilaj",
+        "अस्पताल",
+        "hospital",
+        "pm jay",
+        "pmjay",
+        "स्वास्थ्य",
+        "health card"
+      ],
+      "benefit_en": "Cashless hospital treatment for eligible families (cover amount as per current rules).",
+      "benefit_hi": "पात्र परिवारों के लिए अस्पताल में कैशलेस इलाज (कवर की राशि वर्तमान नियमों के अनुसार)।",
+      "rules": [
+        {
+          "field": "bpl",
+          "op": "eq",
+          "value": true,
+          "label_en": "Family should be in the eligible (BPL / SECC) list",
+          "label_hi": "परिवार पात्र (BPL / SECC) सूची में होना चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Ration card",
+        "Mobile number linked to Aadhaar"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "राशन कार्ड",
+        "आधार से जुड़ा मोबाइल नंबर"
+      ],
+      "how_en": "Visit a CSC or empanelled hospital help desk to check your name and get the card.",
+      "how_hi": "अपने नाम की जाँच और कार्ड के लिए CSC या सूचीबद्ध अस्पताल के हेल्प डेस्क पर जाएँ।",
+      "where_en": "CSC or empanelled hospital help desk",
+      "where_hi": "CSC या सूचीबद्ध अस्पताल का हेल्प डेस्क",
+      "note_en": "Eligibility is decided from the official list; check at a CSC.",
+      "note_hi": "पात्रता आधिकारिक सूची से तय होती है; CSC पर जाँच करें।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "ayushman_vv",
+      "level": "person",
+      "name_en": "Ayushman Vay Vandana (age 70+)",
+      "name_hi": "आयुष्मान वय वंदना (70 वर्ष से ऊपर)",
+      "department": "National Health Authority",
+      "keywords": [
+        "वय वंदना",
+        "वय वंदन",
+        "vay vandana",
+        "vay vandan",
+        "70 साल",
+        "70 year",
+        "आयुष्मान"
+      ],
+      "benefit_en": "Health cover for senior citizens aged 70 and above (confirm current cover on the official portal).",
+      "benefit_hi": "70 वर्ष और उससे अधिक उम्र के बुजुर्गों के लिए स्वास्थ्य कवर (वर्तमान कवर आधिकारिक पोर्टल पर जाँच लें)।",
+      "rules": [
+        {
+          "field": "age",
+          "op": "gte",
+          "value": 70,
+          "label_en": "Age must be 70 years or more",
+          "label_hi": "उम्र 70 साल या उससे अधिक होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Mobile number linked to Aadhaar"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "आधार से जुड़ा मोबाइल नंबर"
+      ],
+      "how_en": "Visit a CSC or empanelled hospital help desk to register and get the card.",
+      "how_hi": "पंजीकरण और कार्ड के लिए CSC या सूचीबद्ध अस्पताल के हेल्प डेस्क पर जाएँ।",
+      "where_en": "CSC or empanelled hospital help desk",
+      "where_hi": "CSC या सूचीबद्ध अस्पताल का हेल्प डेस्क",
+      "note_en": "Confirm whether you must also have a separate Ayushman card.",
+      "note_hi": "जाँच लें कि अलग आयुष्मान कार्ड ज़रूरी है या नहीं।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "ration",
+      "level": "household",
+      "name_en": "Ration Card (Food Security)",
+      "name_hi": "राशन कार्ड (खाद्य सुरक्षा)",
+      "department": "Food, Civil Supplies and Consumer Protection",
+      "keywords": [
+        "राशन",
+        "ration",
+        "अनाज",
+        "anaaj",
+        "चावल",
+        "chawal",
+        "खाद्य",
+        "pds"
+      ],
+      "benefit_en": "Subsidised food grain every month for eligible households.",
+      "benefit_hi": "पात्र परिवारों को हर महीने सस्ता अनाज।",
+      "rules": [
+        {
+          "field": "bpl",
+          "op": "eq",
+          "value": true,
+          "label_en": "Household should fall in the priority / BPL category",
+          "label_hi": "परिवार प्राथमिकता / BPL श्रेणी में होना चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card of all members",
+        "Address proof",
+        "Passport size photo"
+      ],
+      "documents_hi": [
+        "सभी सदस्यों के आधार कार्ड",
+        "पते का प्रमाण",
+        "पासपोर्ट साइज़ फोटो"
+      ],
+      "how_en": "Apply at your ward/panchayat office, CSC or the food department's online portal.",
+      "how_hi": "अपने वार्ड/पंचायत कार्यालय, CSC या खाद्य विभाग के ऑनलाइन पोर्टल पर आवेदन करें।",
+      "where_en": "Ward/panchayat office or CSC",
+      "where_hi": "वार्ड/पंचायत कार्यालय या CSC",
+      "note_en": "Category is decided by the state food department.",
+      "note_hi": "श्रेणी राज्य खाद्य विभाग तय करता है।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "nsap",
+      "level": "person",
+      "name_en": "Old-Age Pension (NSAP / state pension)",
+      "name_hi": "वृद्धावस्था पेंशन (NSAP / राज्य पेंशन)",
+      "department": "Social Welfare Department / NSAP",
+      "keywords": [
+        "पेंशन",
+        "pension",
+        "वृद्धावस्था",
+        "बुजुर्ग",
+        "बुढ़ापा",
+        "old age",
+        "senior citizen"
+      ],
+      "benefit_en": "Monthly pension for eligible poor senior citizens (amount differs by scheme; confirm locally).",
+      "benefit_hi": "पात्र गरीब बुजुर्गों को हर महीने पेंशन (राशि योजना के अनुसार अलग; स्थानीय स्तर पर पुष्टि करें)।",
+      "rules": [
+        {
+          "field": "age",
+          "op": "gte",
+          "value": 60,
+          "label_en": "Age must be at least 60 years",
+          "label_hi": "उम्र कम से कम 60 साल होनी चाहिए"
+        },
+        {
+          "field": "bpl",
+          "op": "eq",
+          "value": true,
+          "label_en": "Household should be a BPL / eligible poor household",
+          "label_hi": "परिवार BPL / पात्र गरीब परिवार होना चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Age proof",
+        "BPL card or ration card",
+        "Bank account details",
+        "Passport size photo"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "आयु प्रमाण",
+        "BPL कार्ड या राशन कार्ड",
+        "बैंक खाते की जानकारी",
+        "पासपोर्ट साइज़ फोटो"
+      ],
+      "how_en": "Apply at your panchayat / ward office or CSC; the social welfare office confirms the application.",
+      "how_hi": "पंचायत / वार्ड कार्यालय या CSC में आवेदन करें; समाज कल्याण कार्यालय आवेदन की पुष्टि करता है।",
+      "where_en": "Panchayat/ward office or CSC",
+      "where_hi": "पंचायत/वार्ड कार्यालय या CSC",
+      "note_en": "State pensions may have different rules; confirm with the social welfare office.",
+      "note_hi": "राज्य की पेंशन योजनाओं के नियम अलग हो सकते हैं; समाज कल्याण कार्यालय से पुष्टि करें।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "sukanya",
+      "level": "person",
+      "name_en": "Sukanya Samriddhi Yojana",
+      "name_hi": "सुकन्या समृद्धि योजना",
+      "department": "Ministry of Finance (Post Office / authorised banks)",
+      "keywords": [
+        "सुकन्या",
+        "sukanya",
+        "बेटी के लिए पैसा जमा",
+        "बेटी का खाता",
+        "बेटी की बचत",
+        "बेटी के नाम",
+        "girl savings",
+        "daughter savings"
+      ],
+      "benefit_en": "A savings account for a girl child's education and future (interest and limits as per current rules).",
+      "benefit_hi": "बेटी की पढ़ाई और भविष्य के लिए बचत खाता (ब्याज और सीमा वर्तमान नियमों के अनुसार)।",
+      "rules": [
+        {
+          "field": "gender",
+          "op": "eq",
+          "value": "F",
+          "label_en": "The account is for a girl child",
+          "label_hi": "खाता बच्ची के लिए है"
+        },
+        {
+          "field": "age",
+          "op": "lte",
+          "value": 10,
+          "label_en": "The girl should be 10 years or younger when the account is opened",
+          "label_hi": "खाता खोलते समय बच्ची की उम्र 10 साल या उससे कम होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Girl's birth certificate",
+        "Parent/guardian ID and address proof",
+        "Passport size photo"
+      ],
+      "documents_hi": [
+        "बच्ची का जन्म प्रमाण पत्र",
+        "माता-पिता/अभिभावक का पहचान और पते का प्रमाण",
+        "पासपोर्ट साइज़ फोटो"
+      ],
+      "how_en": "Open the account at a post office or authorised bank with a parent or guardian.",
+      "how_hi": "माता-पिता या अभिभावक के साथ डाकघर या अधिकृत बैंक में खाता खोलें।",
+      "where_en": "Post office or authorised bank",
+      "where_hi": "डाकघर या अधिकृत बैंक",
+      "note_en": "Rules and age limits can change; confirm at the post office.",
+      "note_hi": "नियम और आयु सीमा बदल सकते हैं; डाकघर में पुष्टि करें।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "pmmvy",
+      "level": "person",
+      "name_en": "PM Matru Vandana Yojana",
+      "name_hi": "प्रधानमंत्री मातृ वंदना योजना",
+      "department": "Ministry of Women & Child Development",
+      "keywords": [
+        "मातृ वंदना",
+        "matru vandana",
+        "pmmvy",
+        "गर्भवती",
+        "pregnant",
+        "प्रसव",
+        "delivery",
+        "गर्भ"
+      ],
+      "benefit_en": "Cash support in instalments for pregnant and breastfeeding women (conditions and amount as per current rules).",
+      "benefit_hi": "गर्भवती और स्तनपान कराने वाली महिलाओं को किस्तों में नकद सहायता (शर्तें और राशि वर्तमान नियमों के अनुसार)।",
+      "rules": [
+        {
+          "field": "gender",
+          "op": "eq",
+          "value": "F",
+          "label_en": "Applicant must be a woman",
+          "label_hi": "आवेदक महिला होनी चाहिए"
+        },
+        {
+          "field": "pregnant",
+          "op": "eq",
+          "value": true,
+          "label_en": "Must be pregnant or breastfeeding",
+          "label_hi": "गर्भवती या स्तनपान कराने वाली होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Aadhaar card",
+        "Bank account details",
+        "Mother-child protection (MCP) card",
+        "Proof of pregnancy"
+      ],
+      "documents_hi": [
+        "आधार कार्ड",
+        "बैंक खाते की जानकारी",
+        "मातृ-शिशु सुरक्षा (MCP) कार्ड",
+        "गर्भावस्था का प्रमाण"
+      ],
+      "how_en": "Register at your Anganwadi centre or health centre (ASHA/ANM can help).",
+      "how_hi": "अपने आँगनबाड़ी केंद्र या स्वास्थ्य केंद्र में पंजीकरण करें (आशा/ANM मदद कर सकती हैं)।",
+      "where_en": "Anganwadi centre or health centre",
+      "where_hi": "आँगनबाड़ी केंद्र या स्वास्थ्य केंद्र",
+      "note_en": "Rules about which child is covered may apply; confirm at the Anganwadi.",
+      "note_hi": "किस बच्चे पर लाभ मिलेगा इसके नियम लागू हो सकते हैं; आँगनबाड़ी में पुष्टि करें।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "anganwadi",
+      "level": "person",
+      "name_en": "Anganwadi nutrition and early learning",
+      "name_hi": "आँगनबाड़ी पोषण और प्रारंभिक शिक्षा",
+      "department": "Women & Child Development",
+      "keywords": [
+        "आंगनवाड़ी",
+        "आँगनबाड़ी",
+        "आंगनबाड़ी",
+        "anganwadi",
+        "पोषण",
+        "poshan",
+        "टेक होम राशन",
+        "take home ration",
+        "बच्चों का पोषण"
+      ],
+      "benefit_en": "Supplementary nutrition, health checks and early learning for young children (up to 6 years).",
+      "benefit_hi": "छोटे बच्चों (6 साल तक) के लिए पूरक पोषण, स्वास्थ्य जाँच और प्रारंभिक शिक्षा।",
+      "rules": [
+        {
+          "field": "age",
+          "op": "lte",
+          "value": 6,
+          "label_en": "Child should be 6 years or younger",
+          "label_hi": "बच्चे की उम्र 6 साल या उससे कम होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "Child's age proof (birth certificate or immunisation card)",
+        "Family ID (Aadhaar or ration card)"
+      ],
+      "documents_hi": [
+        "बच्चे का आयु प्रमाण (जन्म प्रमाण पत्र या टीकाकरण कार्ड)",
+        "परिवार का पहचान पत्र (आधार या राशन कार्ड)"
+      ],
+      "how_en": "Register the child at your nearest Anganwadi centre.",
+      "how_hi": "बच्चे का नाम अपने नज़दीकी आँगनबाड़ी केंद्र में दर्ज कराएँ।",
+      "where_en": "Nearest Anganwadi centre",
+      "where_hi": "नज़दीकी आँगनबाड़ी केंद्र",
+      "note_en": "Services for pregnant women and teenage girls may also be available there.",
+      "note_hi": "वहाँ गर्भवती महिलाओं और किशोरियों के लिए भी सेवाएँ हो सकती हैं।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    },
+    {
+      "id": "pmposhan",
+      "level": "person",
+      "name_en": "PM POSHAN (school meal)",
+      "name_hi": "पीएम पोषण (स्कूल में भोजन)",
+      "department": "Ministry of Education",
+      "keywords": [
+        "मध्याह्न",
+        "मध्यान्ह",
+        "मिड डे",
+        "mid day",
+        "midday",
+        "स्कूल में भोजन",
+        "स्कूल में खाना",
+        "school meal",
+        "pm poshan"
+      ],
+      "benefit_en": "A hot cooked meal in school for children in classes 1 to 8 (government and aided schools).",
+      "benefit_hi": "सरकारी और सहायता प्राप्त स्कूलों में कक्षा 1 से 8 के बच्चों को स्कूल में गरम पका भोजन।",
+      "rules": [
+        {
+          "field": "age",
+          "op": "gte",
+          "value": 6,
+          "label_en": "Child should be about 6 years or older",
+          "label_hi": "बच्चे की उम्र लगभग 6 साल या उससे अधिक होनी चाहिए"
+        },
+        {
+          "field": "age",
+          "op": "lte",
+          "value": 14,
+          "label_en": "Child should be about 14 years or younger",
+          "label_hi": "बच्चे की उम्र लगभग 14 साल या उससे कम होनी चाहिए"
+        }
+      ],
+      "documents_en": [
+        "School enrolment (no separate document usually needed)"
+      ],
+      "documents_hi": [
+        "स्कूल में नामांकन (आमतौर पर अलग दस्तावेज़ ज़रूरी नहीं)"
+      ],
+      "how_en": "Enrol the child in a government or aided school; the meal is given there.",
+      "how_hi": "बच्चे का नामांकन सरकारी या सहायता प्राप्त स्कूल में कराएँ; भोजन वहीं मिलता है।",
+      "where_en": "Child's government or aided school",
+      "where_hi": "बच्चे का सरकारी या सहायता प्राप्त स्कूल",
+      "note_en": "The child must study in a government or aided school (classes 1 to 8).",
+      "note_hi": "बच्चा सरकारी या सहायता प्राप्त स्कूल (कक्षा 1 से 8) में पढ़ता होना चाहिए।",
+      "official_url": "VERIFY: official portal of the concerned department",
+      "verified": false,
+      "last_verified": ""
+    }
+  ]
+}
